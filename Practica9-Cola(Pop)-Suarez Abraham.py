@@ -7,6 +7,8 @@ Created on Sat Oct  6 13:25:03 2018
 
 ip=0
 cola=[]
+#definimos nuestro metodo create, el cual se encarga de declarar la cola global, la define con limite de 5 espacios
+#e imprime el mensaje de que la cola ha sido creada
 def metodocreate():
     global ip
     ip=0
@@ -16,7 +18,9 @@ def metodocreate():
     print(cola)
     
     
-
+#el metodo push usa la variable ip, primero, comparamos el valor de ip con el limite de espacio de nuestra cola
+#si la condicion se cumple, entonces procede a pedir al usuario un valor a insertar en la cola, lo mete en la posicion
+#actual de ip, imprime la cola y aumenta el valor de ip en 1 para que la siguiente insercion sea en el siguiente espacio
 def metodopushjojo():
             global ip
             if ip<5:
@@ -33,12 +37,20 @@ def metodopushjojo():
 
   
         
-
+#definimos nuestro metodo pop que se encargara de sacar el primer elemento ingresado a la cola
+#en el, seguiremos usando la variable ip y ademas, la variable ie, que siempre tendra el mismo valor
+#ya que el elemento que saldra siempre sera el primero, es decir, siempre estara en una sola posicion
 def metodopopjojo():
     global ip
     ie=5 
+    #primero comparamos si en la posicion actual de ip se encuentra un 0 (que en colas, es un espacio vacio)
+    #y de ser asi, se entiende que la cola se encuentra vacia
     if ip==0:           
         print("La cola se encuentra vacia!")
+        
+        #de no ser asi, entonces se mostrara al usuario el valor que esta por ser borrado de la cola
+        #lo borra y entonces agrega un 0 (espacio vacio) al final de la cola, ademas, incrementa el valor
+        #de ip en uno para tener el control del nuermo de datos que han entrado y salido, para cuidar el underflow
     else:
         print("El valor que sera borrado de la cola es el:")
         print(cola[len(cola)-ie])
@@ -119,7 +131,9 @@ def metodopeekJOJO():
     
     
 
-
+#el metodo push usa la variable ip, primero, comparamos el valor de ip con el limite de espacio de nuestra cola
+#si la condicion se cumple, entonces procede a pedir al usuario un valor a insertar en la cola, lo mete en la posicion
+#actual de ip, imprime la cola y aumenta el valor de ip en 1 para que la siguiente insercion sea en el siguiente espacio
 def opciones():
     
     print("\nIntroduzca la opcion que desee")
@@ -129,7 +143,9 @@ def opciones():
     #print("4:Metodos Peek")
     print("5:Para salir")
     e=int(input());
-    
+     #primero comparamos la opcion ingresada y en seguida, comparamos si la longitud del arreglo es de 5
+    #osea, si existe el arreglo creado anteriormente por el metodo create, de ser asi
+    #se muestra el mensaje de que ya se ha creado, de lo contrario, se ejecutara el metodo de creacion
     if (e==1):
         
         if len(cola)==5:
@@ -139,6 +155,12 @@ def opciones():
         else:
             metodocreate();
             opciones();
+    #aplicamos la misma dinamica para todas las opciones, si la longitd del arreglo es 5
+    #lo que quiere decir que ya se ha creado, se ejecuta el metodo que quiere el usuario, de no ser asi
+    #se mostrara el mensaje de que no se ha creado la cola
+    
+    #al final de cada comparacion y sentencia else, despues de ejecutar el mensaje o metodos, mandamos a llamar
+    #al metodo de opciones para usar recursividad y trabajar con la cola hasta que el usuario quiera salir
             
     if(e==2):
         
@@ -183,6 +205,6 @@ def opciones():
 
 
 
-
+#ejecutamos nuestro metodo de opciones para mostrar el menu y empezar la ejecucion de nuestro programa
 opciones();
 
