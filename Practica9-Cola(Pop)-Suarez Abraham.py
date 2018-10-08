@@ -131,9 +131,7 @@ def metodopeekJOJO():
     
     
 
-#el metodo push usa la variable ip, primero, comparamos el valor de ip con el limite de espacio de nuestra cola
-#si la condicion se cumple, entonces procede a pedir al usuario un valor a insertar en la cola, lo mete en la posicion
-#actual de ip, imprime la cola y aumenta el valor de ip en 1 para que la siguiente insercion sea en el siguiente espacio
+#definimos nuestro metodo de opciones para hacer el menu recursivo, desplegando las opciones para el usuario
 def opciones():
     
     print("\nIntroduzca la opcion que desee")
