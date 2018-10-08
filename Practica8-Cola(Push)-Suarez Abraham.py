@@ -8,6 +8,8 @@ Created on Thu Sep 27 06:07:18 2018
 
 ip=0
 cola=[]
+#definimos nuestro metodo create, el cual se encarga de declarar la cola global, la define con limite de 5 espacios
+#e imprime el mensaje de que la cola ha sido creada
 def metodocreate():
     global ip
     ip=0
@@ -17,7 +19,9 @@ def metodocreate():
     print(cola)
     
     
-
+#el metodo push usa la variable ip, primero, comparamos el valor de ip con el limite de espacio de nuestra cola
+#si la condicion se cumple, entonces procede a pedir al usuario un valor a insertar en la cola, lo mete en la posicion
+#actual de ip, imprime la cola y aumenta el valor de ip en 1 para que la siguiente insercion sea en el siguiente espacio
 def metodopushjojo():
             global ip
             if ip<5:
@@ -28,7 +32,7 @@ def metodopushjojo():
                 #cola.append(0)
                 print(cola)
                 ip+=1 
-                             
+            #en caso de que no se cumpla la condicion, se desplegara este mensaje:                 
             else:
                 print("La cola se encuentra llena!")        
 
@@ -120,7 +124,8 @@ def metodopeekJOJO():
     
     
 
-
+#definimos nuestro metodo opciones para el menu, mostramos unicamente las opciones disponibles, pedimos la entrada del
+#usuario y entonces la comparamos con las diferentes opciones que hay dentro del menu
 def opciones():
     
     print("\nIntroduzca la opcion que desee")
@@ -130,7 +135,11 @@ def opciones():
     #print("4:Metodos Peek")
     print("5:Para salir")
     e=int(input());
+
     
+    #primero comparamos la opcion ingresada y en seguida, comparamos si la longitud del arreglo es de 5
+    #osea, si existe el arreglo creado anteriormente por el metodo create, de ser asi
+    #se muestra el mensaje de que ya se ha creado, de lo contrario, se ejecutara el metodo de creacion
     if (e==1):
         
         if len(cola)==5:
@@ -140,7 +149,12 @@ def opciones():
         else:
             metodocreate();
             opciones();
-            
+     #aplicamos la misma dinamica para todas las opciones, si la longitd del arreglo es 5
+    #lo que quiere decir que ya se ha creado, se ejecuta el metodo que quiere el usuario, de no ser asi
+    #se mostrara el mensaje de que no se ha creado la cola
+    
+    #al final de cada comparacion y sentencia else, despues de ejecutar el mensaje o metodos, mandamos a llamar
+    #al metodo de opciones para usar recursividad y trabajar con la cola hasta que el usuario quiera salir
     if(e==2):
         
         if len(cola)==5:
@@ -184,7 +198,7 @@ def opciones():
 
 
 
-
+#ejecutamos nuestro metodo de opciones para mostrar el menu y empezar la ejecucion de nuestro programa
 opciones();
 
 
