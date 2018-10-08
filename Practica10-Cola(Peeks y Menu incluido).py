@@ -8,6 +8,8 @@ Created on Thu Sep 27 06:07:18 2018
 
 ip=0
 cola=[]
+#definimos nuestro metodo create, el cual se encarga de declarar la cola global, la define con limite de 5 espacios
+#e imprime el mensaje de que la cola ha sido creada
 def metodocreate():
     global ip
     ip=0
@@ -17,7 +19,9 @@ def metodocreate():
     print(cola)
     
     
-
+#el metodo push usa la variable ip, primero, comparamos el valor de ip con el limite de espacio de nuestra cola
+#si la condicion se cumple, entonces procede a pedir al usuario un valor a insertar en la cola, lo mete en la posicion
+#actual de ip, imprime la cola y aumenta el valor de ip en 1 para que la siguiente insercion sea en el siguiente espacio
 def metodopushjojo():
             global ip
             if ip<5:
@@ -34,12 +38,20 @@ def metodopushjojo():
 
   
         
-
+#definimos nuestro metodo pop que se encargara de sacar el primer elemento ingresado a la cola
+#en el, seguiremos usando la variable ip y ademas, la variable ie, que siempre tendra el mismo valor
+#ya que el elemento que saldra siempre sera el primero, es decir, siempre estara en una sola posicion
 def metodopopjojo():
     global ip
     ie=5 
+    #primero comparamos si en la posicion actual de ip se encuentra un 0 (que en colas, es un espacio vacio)
+    #y de ser asi, se entiende que la cola se encuentra vacia
     if ip==0:           
         print("La cola se encuentra vacia!")
+        
+        #de no ser asi, entonces se mostrara al usuario el valor que esta por ser borrado de la cola
+        #lo borra y entonces agrega un 0 (espacio vacio) al final de la cola, ademas, incrementa el valor
+        #de ip en uno para tener el control del nuermo de datos que han entrado y salido, para cuidar el underflow
     else:
         print("El valor que sera borrado de la cola es el:")
         print(cola[len(cola)-ie])
@@ -61,9 +73,16 @@ def metodopeekJOJO():
         #hacemos la entrada del usuario
         opcion=int(input());
         
+        #comparamos la entrada con las diferentes opciones que tenemos
         if (opcion==1):
+            #para el primer peek, que se encarga de mostrar el ultimo elemento ingresado
+            #primero comparamos si la posicion de ip-1 es igual a 0, de ser asi, se entiende
+            #que la cola esta vacia
             if cola[ip-1]==0:
                 print("La cola se encuentra vacía!")
+            #de no ser asi, se entiende que hay valores, imprime entonces el valor que se encuentra
+            #en la posicion de ip-1 (se resta 1, por que en la posicion actual hay un 0, por que
+            #despues de cada push se suma 1 a ip)
             else:                
                 print("\nEl valor tope de la cola es:")
                 print(cola[ip-1])
@@ -90,13 +109,15 @@ def metodopeekJOJO():
                         print(cola.index(Num))
                         opciones();
                                       
-                    
+                #si no se encontro el valor, se despliega este mensaje    
                 print("\nNo se encontro el valor en la cola")
-            
+                
         if (opcion==3):
+            #para el tercer peek, hacemos la misma comparacion que se encarga de verificar si la cola esta vacia
                 if cola[ip-1]==0:
                     print("La cola se encuentra vacía!")
                     print(cola)
+                #de no ser asi, simplemente imprime toda la cola                    
                 else:                
                     print("La cola completa es esta:")
                     print(cola)
@@ -104,9 +125,12 @@ def metodopeekJOJO():
             
             
         if (opcion==4):
+            
             if cola[ip-1]==0:
                 print("La cola se encuentra vacía!, no hay elemento por salir")
                 print(cola)
+            #para el ultimo peek, simplemente imprimira el valor que entro al principio, osea, el valor que siempre
+            #estara en la posicion 0
             else:
                 print("\nEl elemento que esta por salir de la pila es")
                 print(cola[0])
@@ -120,7 +144,7 @@ def metodopeekJOJO():
     
     
 
-
+#definimos nuestro metodo de opciones para hacer el menu recursivo, desplegando las opciones para el usuario
 def opciones():
     
     print("\nIntroduzca la opcion que desee")
@@ -130,6 +154,9 @@ def opciones():
     print("4:Metodos Peek")
     print("5:Para salir")
     e=int(input())
+    #primero comparamos la opcion ingresada y en seguida, comparamos si la longitud del arreglo es de 5
+    #osea, si existe el arreglo creado anteriormente por el metodo create, de ser asi
+    #se muestra el mensaje de que ya se ha creado, de lo contrario, se ejecutara el metodo de creacion
     
     if (e==1):
         
@@ -140,6 +167,12 @@ def opciones():
         else:
             metodocreate();
             opciones();
+            #aplicamos la misma dinamica para todas las opciones, si la longitd del arreglo es 5
+            #lo que quiere decir que ya se ha creado, se ejecuta el metodo que quiere el usuario, de no ser asi
+            #se mostrara el mensaje de que no se ha creado la cola
+    
+            #al final de cada comparacion y sentencia else, despues de ejecutar el mensaje o metodos, mandamos a llamar
+            #al metodo de opciones para usar recursividad y trabajar con la cola hasta que el usuario quiera salir
                 
     if(e==2):
         
@@ -180,14 +213,15 @@ def opciones():
              
                 
                 
-    
+    #en este caso, despues de la comparacion y el despliegue del mensaje, no usamos recursividad
+    #ya que es la opcion de salida
     if (e==5):
         print("Que tenga buen dia:D")
        
 
 
 
-
+#ejecutamos nuestro metodo de opciones para mostrar el menu y empezar la ejecucion de nuestro programa
 opciones();
 
 
