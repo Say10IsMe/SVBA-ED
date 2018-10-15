@@ -4,8 +4,6 @@ Created on Wed Sep 26 19:30:19 2018
 
 @author: pc
 """
-import os
-clear = lambda: os.system('cls')
 
 #Aqui declaramos el arreglo y la variable que definirá el tamaño máximo de
 #nuestra pila
@@ -58,14 +56,14 @@ def metodopeek():
         print("Introduzca 2 para peek buscador")
         print("Introduzca 3 para peek mostrador")
         #hacemos la entrada del usuario
-        opcion=input();
+        opcion=int(input());
    
     #para el primer caso, solo imprimimos el valor tope de la pila
     #esto lo conseguimos imprimiendo la posicion de la longitud de la pila
     #menos 1, recordando que los indices en la pila van desde el 0
     #por lo tanto, si la pila es de 5 elementos, las posiciones son
     # 0 1 2 3 4
-        if (opcion=="1"):                            
+        if (opcion==1):                            
             print("\nEl valor tope de la pila es:")
             print(pila[len(pila)-1])
             print("se encuentra en el indice")
@@ -77,7 +75,7 @@ def metodopeek():
            #el numero ingresado por el usuario con los elementos de la pila
            #una vez que haya la coincidencia, imprime el valor y su posicion
            #con la funcion .index
-        if (opcion=="2"):
+        if (opcion==2):
             print("Introduzca el valor que desea buscar en la pila")
             vb=input();
             for Num in pila:
@@ -91,7 +89,7 @@ def metodopeek():
             
             print("No se encontro el valor en la pila")
             
-        if (opcion=="3"):
+        if (opcion==3):
                 
             print("La pila completa es esta:")
             print(pila)
@@ -108,24 +106,24 @@ def opciones():
     print("2:Metodo Pop")
     print("3:Metodo Peek")
     print("4:Para salir")
-    e=input();
-    if (e=="1"):
+    e=int(input());
+    if (e==1):
         print("Introduzca el valor para la pila")
         v=input();
         metodopush(v)
         
         opciones();
-    if(e=="2"):
+    if(e==2):
         metodopop();
         
         opciones();
     
-    if (e=="3"):
+    if (e==3):
         metodopeek();
         
         opciones();
         
-    if (e=="4"):
+    if (e==4):
         print("Que tenga buen dia:D")
         
        
