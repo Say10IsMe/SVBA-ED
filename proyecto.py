@@ -216,11 +216,11 @@ def insercion(lista,c):
     global listas
     global listam
     #si el contador sea menor que 50
-    if (c<1000):
+    if (c<500):
         #crea un numero aleatorio entre 0 y 100 y lo agrega a la lista
         #incrementa el valor del contador en 1 y se usa recursividad
         #para llamar al metodo hasta que que se hayan insertado los 50 elementos
-        e=randint(0,1000)
+        e=randint(0,500)
         lista.append(e)
         c+=1
         insercion(lista,c)
@@ -236,55 +236,60 @@ def insercion(lista,c):
 
 
 def menu():
-    print("Crear una nueva lista aleatoria:1")
-    print("Metodo Burbuja:                 2")
-    print("Metodo QuickSort:               3")
-    print("Metodo ShellSort:               4")
-    print("Metodo MergeSort:               5")
-    opc=int(input());
-    if (opc==1):
-        lista=[]
-        c=0
-        insercion(lista,c)
-        menu();
-    if (opc==2):
-        n=0
-        tib=time()
-        metodoburbuja(listab,n);
-        tfb=time()
-        print("Lista ordenada por metodo burbuja")
-        print(listab)
-        print("Tiempo tomado para ordenamiento")
-        print(tfb-tib)
-        menu();
-    if (opc==3):
-        tiq=time()
-        listaquick=QuickSortez(listaq);
-        tfq=time()
-        tq=(tfq-tiq)
-        print("Lista ordenada por Quicksort")
-        print(listaquick)
-        print("Tiempo tomado para ordenamiento")
-        print(tq)
-        menu();
-    if (opc==4):
-        tis=time()
-        ShellSort(listas);
-        tfs=time()
-        print("Lista ordenada por Shellsort")
-        print(listas)
-        print("Tiempo tomado para ordenamiento")
-        print(tfs-tis)
-        menu();
-    if (opc==5):
-        tim=time()
-        MergeSort(listam);
-        tfm=time()
-        print("Lista ordenada por Mergesort")
-        print(listam)
-        print("Tiempo tomado para ordenamiento")
-        print(tfm-tim)
-        menu();
+    while True:
+        print("Crear una nueva lista aleatoria:1")
+        print("Metodo Burbuja:                 2")
+        print("Metodo QuickSort:               3")
+        print("Metodo ShellSort:               4")
+        print("Metodo MergeSort:               5")
+        print("Salir:                          0")
+        opc=input();
+        if (opc=="1"):
+            lista=[]
+            c=0
+            insercion(lista,c)
+            menu();
+        if (opc=="2"):
+            n=0
+            tib=time()
+            metodoburbuja(listab,n);
+            tfb=time()
+            print("Lista ordenada por metodo burbuja")
+            print(listab)
+            print("Tiempo tomado para ordenamiento")
+            print(tfb-tib)
+            menu();
+        if (opc=="3"):
+            tiq=time()
+            listaquick=QuickSortez(listaq);
+            tfq=time()
+            tq=(tfq-tiq)
+            print("Lista ordenada por Quicksort")
+            print(listaquick)
+            print("Tiempo tomado para ordenamiento")
+            print(tq)
+            menu();
+        if (opc=="4"):
+            tis=time()
+            ShellSort(listas);
+            tfs=time()
+            print("Lista ordenada por Shellsort")
+            print(listas)
+            print("Tiempo tomado para ordenamiento")
+            print(tfs-tis)
+            menu();
+        if (opc=="5"):
+            tim=time()
+            MergeSort(listam);
+            tfm=time()
+            print("Lista ordenada por Mergesort")
+            print(listam)
+            print("Tiempo tomado para ordenamiento")
+            print(tfm-tim)
+            menu();
+        elif (opc=="0"):
+            return False
         
 menu();
 
+        
